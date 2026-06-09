@@ -7,3 +7,4 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+bundle install; bundle exec rails db:migrate; bundle exec rake assets:precompile; bundle exec rake assets:clean;
