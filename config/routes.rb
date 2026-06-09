@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :lectures
   resources :categories
 
-  root 'blogs#schedule'
+  root 'blogs#index'
   get 'schedule', to: 'blogs#schedule'
 
   get 'daily/:date',
