@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   resources :lectures
   resources :categories
 
+  root 'blogs#schedule'
   get 'schedule', to: 'blogs#schedule'
 
   get 'daily/:date',
     to: 'blogs#daily',
     as: 'daily_schedule'
 
-  root 'lectures#index'
   get 'lectures/index' => 'lectures#index'
   get 'lectures/new' => 'lectures#new'
   post 'lectures/new' => 'lectures#create'
