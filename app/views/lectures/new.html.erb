@@ -1,0 +1,30 @@
+<%= form_with model: @lecture , url: lectures_new_path ,local: true do |f| %>
+  <div class="lecture_form">
+  <h3>➕Todo（⭐️優先度）</h3>
+  <%= f.text_field :name , placeholder: 'やること', class:'name_field'%>
+  <%= f.text_field :username , placeholder: '〆切', class:'name_field'%>
+
+<div class="post_form">
+  <%= f.radio_button :level, 5, id: 'star6' %>
+  <label for="star6">★</label>
+
+  <%= f.radio_button :level, 4, id: 'star7' %>
+  <label for="star7">★</label>
+
+  <%= f.radio_button :level, 3, id: 'star8' %>
+  <label for="star8">★</label>
+
+  <%= f.radio_button :level, 2, id: 'star9' %>
+  <label for="star9">★</label>
+
+  <%= f.radio_button :level, 1, id: 'star10' %>
+  <label for="star10">★</label>
+</div>
+
+  </div>
+  <%= f.submit '保存'%>
+  <br><br>
+
+  <%= link_to "🗓️My Schedule🗓️", blogs_path %>
+
+<% end %>

@@ -1,0 +1,27 @@
+<% @lectures.each do |t|%>
+<div style = 'margin:20px; border:2px double black; width:500px;padding-left:20px;'>
+   <h3> やること：<%= t.name %> </h3>
+   <h3>〆切:<%= t.username%></h3>
+
+
+<div>
+<h3>優先順位：
+<span class="star-rating">
+   <span class="star-rating-front" style="width: <%= getPercent(t.level) %>%;">★★★★★</span>
+   <span class="star-rating-back">★★★★★</span>
+</span> 
+</h3>
+</div>
+</div>
+
+ <%= button_to "✅ 完了",
+        lecture_path(t),
+        method: :delete,
+        data: { confirm: "完了したタスクを削除しますか？" } %>
+
+  </div>
+<% end %>
+
+<div class="button-area">
+  <%= link_to "＋ todoを追加", lectures_new_path, class: "add-btn" %>
+</div>

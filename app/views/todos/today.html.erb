@@ -1,0 +1,16 @@
+<h1>📋 TODAY</h1>
+
+<% @today_todos.each do |todo| %>
+
+  <div class="today-card">
+
+    <h3><%= todo.title %></h3>
+
+    <p>
+      締切:
+      <%= todo.deadline.strftime("%m/%d") %>
+    </p>
+
+  </div>
+
+<% end %>

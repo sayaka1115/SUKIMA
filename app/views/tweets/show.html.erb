@@ -1,0 +1,12 @@
+<h1>todo</h1>
+
+<p>タイトル：<%= @tweet.title %></p>
+<p>場所：<%= @tweet.place %></p>
+<p>締切日時：<%= @tweet.deadline %></p>
+<p>開始：<%= @tweet.start_time %></p>
+<p>終了：<%= @tweet.end_time %></p>
+
+<p>メモ：<%= @tweet.memo %></p>
+
+<%= link_to "編集する", edit_tweet_path(@tweet) %> %>
+<%= button_to "削除する", tweet_path(@tweet.id), method: :delete %>

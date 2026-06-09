@@ -1,0 +1,36 @@
+<h1>カテゴリ管理</h1>
+
+<%= link_to "＋カテゴリ追加", new_category_path %>
+
+<hr>
+
+<% @categories.each do |category| %>
+
+<div
+  style="
+    background:<%= category.color %>;
+    padding:20px;
+    margin:15px 0;
+    border-radius:20px;
+    width:600px;
+  "
+>
+
+  <div style="display:flex; justify-content:space-between;">
+
+    <h3><%= category.name %></h3>
+
+    <%= button_to "🗑️",
+          category_path(category),
+          method: :delete,
+          data: { confirm: "削除しますか？" } %>
+
+  </div>
+
+</div>
+
+<% end %>
+
+<br>
+
+<%= link_to "← マイページへ戻る", mypage_path %>

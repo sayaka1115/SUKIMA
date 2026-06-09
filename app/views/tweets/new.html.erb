@@ -1,0 +1,70 @@
+<h1>New Schedule ✨</h1>
+<%= form_for @tweet do |f| %>
+
+<%# データ型がstringで自由記述の入力フォーム %>
+  <div class="field">
+    <%= f.label :予定 %>
+    <%= f.text_field :title, :size => 30 %>
+  </div>
+
+<%# データ型がstringで自由記述の入力フォーム %>
+  <div class="field">
+    <%= f.label :場所 %>
+    <%= f.text_field :place, :size => "30x2" %>
+  </div>
+
+
+<div class="field">
+  <%= f.label :🕐開始 %>
+  <%= f.datetime_select :start_time,
+        minute_step: 10,
+        discard_seconds: true %>
+</div>
+
+<div class="field">
+  <%= f.label :🕓終了 %>
+  <%= f.datetime_select :end_time,
+        minute_step: 10,
+        discard_seconds: true %>
+</div>
+
+<div class="field">
+  <%= f.label :"⚠️締切" %>
+  <%= f.datetime_select :deadline,
+        minute_step: 10,
+        discard_seconds: true %>
+</div>
+
+<%# データ型がtextで自由記述の入力フォーム %>
+  <div class="field">
+    <%= f.label :メモ  %>
+    <%= f.text_area :memo, :size => "30x4" %>
+  </div>
+
+
+<div class="field">
+  <%= f.label :カテゴリ %>
+<%= f.collection_select :category_id,
+      Category.all,
+      :id,
+      :name,
+      { prompt: "選択" } %>
+
+</div>
+
+  <%= f.submit "保存" %>
+<% end %>
+
+<%= link_to "カレンダーに戻る", blogs_path %>
+
+<script>
+function toggleCategoryForm() {
+  const form = document.getElementById("new-category-form");
+
+  if(form.style.display === "none"){
+    form.style.display = "block";
+  }else{
+    form.style.display = "none";
+  }
+}
+</script>

@@ -1,0 +1,14 @@
+<h1>スケジュール</h1>
+
+<% @tweets.each do |tweet| %>
+  <div>
+    <p><%= tweet.title %></p>
+    <p><%= tweet.deadline %></p>
+    <p><%= tweet.place %></p>
+    <p><%= tweet.memo %></p>
+    <p><%= tweet.start_time %></p>
+    <p><%= tweet.end_time %></p>
+  </div>
+<% end %>
+
+<%= link_to "カレンダーに戻る", blogs_path %>

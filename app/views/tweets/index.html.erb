@@ -1,0 +1,43 @@
+<div class="header">
+  <h1>SUKIMA+</h1>
+
+  <%= link_to "📅 カレンダー", blogs_path, class: "calendar-btn" %>
+</div>
+<h3>一覧ページ</h3>
+<%= link_to "➕予定を追加", new_tweet_path %>
+<div class="tweets-container">
+  <% @tweets.each do |tweet| %>
+  <div class="tweet">
+
+  <h3
+    style="
+      background-color:<%= tweet.category&.color || '#eeeeee' %>;
+      padding:10px;
+      border-radius:10px;
+    "
+  >
+    <%= tweet.title %>
+  </h3>
+
+  <p>
+    🕐
+    <%= tweet.start_time.strftime("%H:%M") %>
+    〜
+    <%= tweet.end_time.strftime("%H:%M") %>
+  </p>
+
+  <p>
+    📍
+    <%= tweet.place %>
+  </p>
+
+  <p>
+    ⚠️締切
+    <%= tweet.deadline.strftime("%m/%d %H:%M") %>
+  </p>
+
+  <%= link_to "詳細を見る", tweet_path(tweet) %>
+
+</div>
+<% end %>
+</div>

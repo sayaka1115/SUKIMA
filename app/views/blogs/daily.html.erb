@@ -1,0 +1,55 @@
+<h1><%= @date.strftime("%Y.%m.%d.%a").upcase %></h1>
+
+<div class="timeline">
+
+  <% (7..24).each do |hour| %>
+
+    <div class="timeline-row">
+
+      <div class="timeline-hour">
+        <%= "%02d:00" % hour %>
+      </div>
+
+      <div class="timeline-content">
+
+  <% events = @tweets.select { |tweet| tweet.start_time.hour == hour } %>
+
+  <% if events.any? %>
+
+    <% events.each do |tweet| %>
+
+      <div
+        class="event-card"
+        style="
+          border-left:10px solid
+          <%= tweet.category&.color || '#ccc' %>;
+        "
+      >
+
+        <strong><%= tweet.title %></strong>
+
+        <br>
+
+        <%= tweet.start_time.strftime("%H:%M") %>
+        〜
+        <%= tweet.end_time.strftime("%H:%M") %>
+
+      </div>
+
+    <% end %>
+
+  <% else %>
+
+    <div class="sukima-time">
+      ✨ SUKIMA TIME
+    </div>
+
+  <% end %>
+
+</div>
+
+    </div>
+
+  <% end %>
+
+</div>

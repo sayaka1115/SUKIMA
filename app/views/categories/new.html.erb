@@ -1,0 +1,21 @@
+<h1>カテゴリ追加</h1>
+
+<%= form_with model: @category do |f| %>
+
+  <p>カテゴリ名</p>
+  <%= f.text_field :name %>
+
+  <p>色</p>
+
+  <%= f.select :color,
+      [
+        ["ピンク","#FFD6E7"],
+        ["緑","#D8F3DC"],
+        ["青","#D6E4FF"],
+        ["黄色","#FFF3BF"],
+        ["紫","#E5DBFF"]
+      ] %>
+
+  <%= f.submit "追加" %>
+
+<% end %>
